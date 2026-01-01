@@ -39,19 +39,16 @@ def highlight_text(text, top_k=5):
 
     found = {}
 
-    # Phrase matching first (important!)
     for phrase, weight in KEYWORD_WEIGHTS.items():
         if phrase in text:
             found[phrase] = weight
 
-    # Token-level matching
     for token in text.split():
         if token in STOPWORDS:
             continue
         if token in KEYWORD_WEIGHTS:
             found[token] = max(found.get(token, 0), KEYWORD_WEIGHTS[token])
 
-    # Sort by importance
     highlights = sorted(found.items(), key=lambda x: -x[1])
 
     return [k for k, _ in highlights[:top_k]] or ["Problem appears straightforward"]
