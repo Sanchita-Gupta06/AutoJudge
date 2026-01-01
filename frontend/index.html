@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>AutoJudge</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <h1>AutoJudge</h1>
+            <span class="tagline">AI-powered programming problem difficulty analyzer</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="input-card">
+            <label>Problem Description</label>
+            <textarea id="desc"></textarea>
+
+            <label>Input Description</label>
+            <textarea id="input"></textarea>
+
+            <label>Output Description</label>
+            <textarea id="output"></textarea>
+
+            <button id="analyzeBtn" onclick="predict()">Analyze Difficulty</button>
+        </section>
+
+        <section id="result" class="result hidden">
+            <div class="summary">
+                <div>
+                    <span id="difficultyBadge" class="badge"></span>
+                    <div class="score">
+                        Predicted Score: <strong id="score"></strong>
+                    </div>
+                </div>
+
+                <div class="confidence">
+                    <span>Confidence <span id="confidenceText"></span></span>
+                    <div class="confidence-bar">
+                        <div id="confidenceFill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>What makes this hard?</h3>
+                <div id="highlights" class="highlight-box"></div>
+            </div>
+
+            <div class="card">
+                <h3>Similar Problems</h3>
+                <div id="similar" class="similar-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer-text">
+        Built by <strong>Sanchita Gupta</strong> • AutoJudge © 2026
+      </p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
